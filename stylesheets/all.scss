@@ -1,0 +1,65 @@
+// 客製化bootstrap 匯入
+
+// 1.  必須先匯入bootstrap funtions ，再匯入自己客製化的 bootstrap 檔案才能運作
+ @import "../node_modules/bootstrap/scss/functions";
+
+
+// 2.  匯入自己需要的bootstrap 檔案 ex:utilities.scss 或元件.scss 都可以用來客製化
+@import "./helpers/variables"; //客製化變數檔案
+@import "./helpers/utilities"; //客製化通用類別檔案
+
+
+// 3.  載入完整 bootstrap 檔案 或 選擇優化載入 bootstrap 檔案(ex: @import "../node_modules/bootstrap/scss/btn";)
+// @import "../node_modules/bootstrap/scss/bootstrap";
+
+
+// 4. 優化載入 bootstrap 
+@import "../node_modules/bootstrap/scss/mixins";
+
+
+// Layout & components
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/forms";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/dropdown";
+@import "../node_modules/bootstrap/scss/button-group";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/accordion";
+@import "../node_modules/bootstrap/scss/breadcrumb";
+@import "../node_modules/bootstrap/scss/pagination";
+@import "../node_modules/bootstrap/scss/badge";
+@import "../node_modules/bootstrap/scss/alert";
+@import "../node_modules/bootstrap/scss/progress";
+@import "../node_modules/bootstrap/scss/list-group";
+@import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/toasts";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/tooltip";
+@import "../node_modules/bootstrap/scss/popover";
+@import "../node_modules/bootstrap/scss/carousel";
+@import "../node_modules/bootstrap/scss/spinners";
+@import "../node_modules/bootstrap/scss/offcanvas";
+@import "../node_modules/bootstrap/scss/placeholders";
+
+// Helpers
+@import "../node_modules/bootstrap/scss/helpers";
+
+// Utilities
+@import "../node_modules/bootstrap/scss/utilities/api";
+
+
+// custom 客製化bootstrap 樣式
+
+//components
+@import "./components/custom-btns";
+
+

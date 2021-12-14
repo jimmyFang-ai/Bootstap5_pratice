@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- google icons -->
+     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+     rel="stylesheet">
+     <!--google icons 無邊框-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+     rel="stylesheet"> 
+     <!-- 因為scss檔案在瀏覽器是無法讀取，必須將檔案路徑建立在all.css -->
+   <link rel="stylesheet" href="./stylesheets/all.css">
+   <!-- 改寫root層  --bs-font-sans-serif 字體參數，新增字體必須加在系統字體 system-ui,-apple-system 後方，才能讓各系統兼併相容性-->
+   <style>
+       :root {
+        --bs-font-sans-serif: system-ui,-apple-system,'Microsoft JhengHei',微軟正黑體,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+       }
+   </style>
+</head>
+<body>
+    <div class="container">
+      <!-- 返回頂端 toTop -->
+      <div class="toTop position-fixed" style="right: 30px; bottom: 30px;">
+          <a class="text-success" href="#">
+            <span class="material-icons-outlined display-4">
+                arrow_circle_up
+            </span>
+          </a>
+      </div>
+
+      <!-- 部落格置頂標題 -->
+           <header class="text-center border-bottom py-3">
+                   <a href="#" class="fs-2 link-primary  text-decoration-none fw-bolder">吉米的前端筆記</a>
+           </header>
+           
+      <!-- narbar 導覽列  -->
+          <div class="overflow-auto py-1">
+               <nav class="nav justify-content-between flex-nowrap text-nowrap ">
+                    <a href="#" class="nav-link link-secondary text-decoration fw-bolder">HTML</a>
+                    <a href="#" class="nav-link link-secondary text-decoration fw-bolder">CSS</a>
+                    <a href="#" class="nav-link link-secondary text-decoration fw-bolder">JavaScript</a>
+                    <a href="#" class="nav-link link-secondary text-decoration fw-bolder">理財</a>
+                    <a href="#" class="nav-link link-secondary text-decoration fw-bolder">興趣</a>
+                    <a href="#" class="nav-link link-secondary text-decoration fw-bolder">閱讀好書</a>
+                    <a href="#" class="nav-link link-secondary text-decoration fw-bolder">育兒分享</a>
+               </nav>
+          </div>
+
+      <!-- hero-banner 首圖背景 -->
+          <div class="p-4 p-md-5 bg-cover bg-p-center text-white rounded-3 mb-4" style="background-image:url('https://images.unsplash.com/photo-1503072000956-b1ba82f2a278?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80')">
+                  <!-- 套用部分格線系統， col-md-6  是在平板以上呈現66.66% 寬度，單純要套用寬度，並沒有要調整額外的排版樣式 -->
+                  <div class="col-md-8">
+                     <h1 class="display-4 fst-italic">科技的進步，始終來自解決人的需求</h1>
+                     <p class="lead my-3">沒有神一般的技術，唯有不斷刻意練習、和找出問題並解決寫下來的技術文章，一步一步走才能走得快。</p>
+                     <p class="lead mb-0"><a href="#" class="text-white fw-bolder">繼續閱讀</a></p>
+                 </div>   
+          </div>
+
+      <!-- 水平卡片排版技巧 -->
+           <div class="row row-cols-1 row-cols-lg-2 mb-5 gy-2 gy-lg-0">
+               <div class="col">
+                   <!-- 卡片 flex-row 讓內容水平排列 -->
+                  <div class="card h-100 flex-row">
+                      <div class="row g-0">
+                          <!-- 卡片內容 -->
+                          <div class="col">
+                               <!-- 讓卡片內容集中，使用 padding 產生內距 -->
+                               <div class="p-4 d-flex flex-column h-100">
+                                   <strong class="d-inline-block mb-2 text-success">興趣</strong>
+                                   <h3 class="mb-2">慢跑能提升專注力</h3>
+                                   <div class="mb-1 text-muted">十二月 12</div>
+                                   <p class="card-text mb-auto">慢跑，除了能身體健康，強健體魄外，還有一個很棒的效果，我們在調整步伐和呼吸節奏時，同時也讓大腦運作進而產生專注力去執行這些連貫動作</p>
+                                   <!-- 卡片按鈕 -->
+                                   <a href="#" class="text-success  fw-bolder stretched-link">繼續閱讀</a>
+                               </div>
+                          </div>
+                          <!-- 卡片圖片 -->
+                          <div class="col-4 d-none d-md-block bg-cover bg-p-center" style="background-image: url(https://images.unsplash.com/photo-1611871233475-7c874af9ad2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjF8fHJ1bnxlbnwwfDF8MHx8&auto=format&fit=crop&w=500&q=60);">
+
+                          </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="col">
+                     <!-- 卡片 .h-100 卡片等高 -->
+                  <div class="card h-100">
+                    <div class="row g-0">
+                        <!-- 卡片內容 -->
+                        <div class="col">
+                             <!-- 讓卡片內容集中，使用 padding 產生內距 -->
+                             <div class="p-4">
+                                 <strong class="d-inline-block mb-2 text-success">育兒分享</strong>
+                                 <h3 class="mb-2">擁抱，有助子女情緒管理</h3>
+                                 <div class="mb-1 text-muted">十二月 12</div>
+                                 <p class="card-text">當父母在擁抱子女的過程中而不說教，大部分受子女都會感到開心和甜蜜等正面情緒，有近8成父母表示擁抱子女時，自己情緒也會跟著變得平緩。時，同時也讓大腦運作進而產生專注力去執行這些連貫動作</p>
+                                 <!-- 卡片按鈕 -->
+                                 <a href="#" class="text-success fw-bolder stretched-link">繼續閱讀</a>
+                             </div>
+                        </div>
+                        <!-- 卡片圖片 -->
+                        <div class="col-4 d-none d-md-block bg-cover bg-p-center" style="background-image: url(https://images.unsplash.com/photo-1605713288610-00c1c630ca1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aHVnfGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60);">
+                        </div>
+                    </div>
+                </div>
+               </div>
+           </div>
+
+      <!-- 內文及側欄安排 -->
+        <div class="row g-md-4 mb-5">
+            <!-- 內文 -->
+            <div class="col-md-8">
+                   <!-- article 標籤元素 -->
+                   <article>
+                          <h2>CSS -盒模型 box-model</h2>
+                          <div id="doc" class="markdown-body container-fluid comment-enabled comment-inner" data-hard-breaks="true">
+    
+                              <p class="part" data-startline="3" data-endline="3" data-position="19" data-size="0"><span data-position="20" data-size="30">Html 的每個元素都可以視為盒模型，並且對這個盒子去操控。</span></p><h2 class="part" data-startline="6" data-endline="7" id="▶-Box-Model-的定義" data-id="▶-Box-Model-的定義"><a class="anchor hidden-xs" href="#▶-Box-Model-的定義" title="▶-Box-Model-的定義" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="54" data-size="15">▶ Box Model 的定義</span></h2><p class="part" data-startline="8" data-endline="9" data-position="75" data-size="0"><img src="https://i.imgur.com/0nT8sW5.jpg" alt="" class="" data-position="75" data-size="36" loading="lazy"><br>
+                            <span data-position="112" data-size="12">盒模型的組成分為四部分:</span></p><ul class="part" data-startline="10" data-endline="15">
+                            <li class="" data-startline="10" data-endline="10" data-position="127" data-size="0"><span data-position="127" data-size="43">content (內容) : 圖片 100x 100 位置， HTML標籤包圍的內容。</span></li>
+                            <li class="" data-startline="11" data-endline="11" data-position="173" data-size="0"><span data-position="173" data-size="26">padding :  box model 的內邊距。</span></li>
+                            <li class="" data-startline="12" data-endline="12" data-position="202" data-size="0"><span data-position="202" data-size="44">border:  box model 的邊框，即調整盒模型時，以此和margin作為分界</span></li>
+                            <li class="" data-startline="13" data-endline="15" data-position="249" data-size="0"><span data-position="249" data-size="33">margin:  box model 的外邊距，元素間的間距調整。</span></li>
+                            </ul><h2 class="part" data-startline="16" data-endline="17" id="▶-content-box-與-border-box" data-id="▶-content-box-與-border-box"><a class="anchor hidden-xs" href="#▶-content-box-與-border-box" title="▶-content-box-與-border-box" smoothhashscroll=""><span class="octicon octicon-link"></span></a><span data-position="285" data-size="26">▶ content-box 與 border-box</span></h2><ul class="part" data-startline="18" data-endline="21">
+                            <li class="" data-startline="18" data-endline="21" data-position="318" data-size="0"><strong data-position="318" data-size="0"><span data-position="320" data-size="43">content-box(如下圖): 所設定的數值 ＋ border ＋ padding</span></strong><br>
+                            <img src="https://i.imgur.com/0nT8sW5.jpg" alt="" class="" data-position="366" data-size="36" loading="lazy"></li>
+                            </ul><p class="part" data-startline="22" data-endline="23" data-position="405" data-size="0"><span data-position="406" data-size="26">如圖片，原本設定寬度為100px ，實際盒模型寬度為</span><br>
+                            <span data-position="433" data-size="52">100px + ( padding 10px *2) + ( border 5px *2) = 130px。</span></p><ul class="part" data-startline="26" data-endline="28">
+                            <li class="" data-startline="26" data-endline="28" data-position="492" data-size="0"><strong data-position="492" data-size="0"><span data-position="494" data-size="43">border-box: 所設定的數值 ( 已包含 border 和 padding )</span></strong><br>
+                            <img src="https://i.imgur.com/g21EGIX.jpg" alt="" class="" data-position="540" data-size="36" loading="lazy"></li>
+                            </ul><p class="part" data-startline="29" data-endline="29" data-position="578" data-size="0"><span data-position="578" data-size="32">如圖片，原本設定寬度為100px ，實際盒模型寬度為 100px</span></p><ul class="part" data-startline="31" data-endline="33">
+                            <li class="" data-startline="31" data-endline="33" data-position="615" data-size="0">
+                            <p data-position="613" data-size="0"><strong data-position="615" data-size="0"><span data-position="617" data-size="6">兩者差異比較</span></strong></p>
+                            <p data-position="628" data-size="0"><span data-position="632" data-size="9">以下為開發程式碼:</span></p>
+                            </li>
+                            </ul>
+                            
+                            <div class="mb-2">
+                                <img class="mb-2 img-fluid" src="./img/程式碼.jpg" alt="">
+                                <img class="mb-2 img-fluid" src="./img/程式碼 1.jpg" alt="">
+                                <img class="img-fluid" src="https://i.imgur.com/46SqQq0.jpg" alt="">
+                            </div>
+                            
+
+                            <div>
+                                <strong>如上圖兩者比較:</strong>
+                                <p>
+                                    使用box-sizing: border-box 語法的好處，
+                                    即使調整 padding和border的數值，也不會因為元素變大而破版。
+                                </p>
+                            </div>
+                            <hr>
+                             <p class="mb-0">
+                                <strong>參考出處:</strong> 
+                                <small><a  href="https://ithelp.ithome.com.tw/articles/10252827">Box-sizing - 金魚都能懂的CSS必學屬性</a></small>
+                             </p>
+                        
+                   </article>
+            </div>
+            <!-- 側欄 要有 sticky-top功能 -->
+            <div class="col-md-4">
+                <div class="sticky-top" style="top: 32px;">
+                    <div class="p-4 bg-light rounded">
+                        <h4>關於我</h4>
+                        <p>目前是位在餐飲業工作的廚師，為了學習前端領域的技術和知識，所創建的部落格。</p>
+                    </div>
+                    <div class="p-4">
+                        <h4>封存</h4>
+                        <ol class=list-unstyled>
+                            <li><a href="#">2021年10月</a></li>
+                            <li><a href="#">2021年9月</a></li>
+                            <li><a href="#">2021年8月</a></li>
+                            <li><a href="#">2021年7月</a></li>
+                            <li><a href="#">2021年6月</a></li>
+                            <li><a href="#">2021年5月</a></li>
+                            <li><a href="#">2021年4月</a></li>
+                            <li><a href="#">2021年3月</a></li>
+                            <li><a href="#">2021年2月</a></li>
+                            <li><a href="#">2021年1月</a></li>
+                        </ol>
+                    </div>
+                    <div class="p-4">
+                        <h4>追蹤我</h4>
+                        <i class="fa-brands fa-apple"></i>
+                        <ol class="list-unstyled">
+                            <li><a href="#">gitHub</a></li>
+                            <li><a href="#">facebook</a></li>
+                            <li><a href="#">Twttier</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+     <!-- 表尾 -->
+     <footer class="bg-light py-4 text-center">
+         <p>六角學院 Bootstrap 練習版型</p> 
+     </footer>
+</body>
+
+<script src="./js/all.js"></script>
+</html>

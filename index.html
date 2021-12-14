@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- google icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+    <!--google icons 無邊框-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"> 
+    <!-- 因為scss檔案在瀏覽器是無法讀取，必須將檔案路徑建立在all.css -->
+    <link rel="stylesheet" href="./stylesheets/all.css">
+</head>
+     <body>
+          <!-- 導覽列  製作偵測頁面的滾動 會變色-->
+                <!--navbar-expand-lg 導覽列在 桌機板內容會展開  -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <!-- 將導覽列容器內的元素 全部垂直居中  -->
+              <div class="container align-items-center">
+                    <!-- 漢堡選單 收合功能按鈕 -->
+                  <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menucontent" aria-controls="menuContent" aria-expanded="false" aria-label="Toggle navigation">
+                       <span class="navbar-toggler-icon"></span>
+                  </button>
+                   <!-- logo  -->
+                   <a class="navbar-brand" href="#">
+                    <img height="30" src="img/logo.png" alt="veganfood">
+                  </a>
+                  <!-- bootstrap 沒有reset ul li 圓點，要另外加上樣式  ， order-lg-3 在桌機板flex 排列順序為第三個-->
+                  <ul class="list-unstyled m-0 d-flex order-1 order-lg-3">
+                    <li class="me-3">
+                        <a href="#" >        
+                            <span class="material-icons h2 mb-0 text-info">
+                              shopping_cart
+                            </span>               
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="h4">
+                            <span class="material-icons h2 mb-0 text-info">
+                                person
+                            </span>
+                        </a>
+                      </li>
+                  </ul>
+                  <div class="collapse navbar-collapse order-2" id="menuContent">
+                       <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">關於我們</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">菜單選購</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">常見問題</a>
+                            </li>
+                       </ul>
+                  </div>
+              </div>
+          </nav>
+          <!-- hero banner-->
+          <section class="min-vh-100 bg-dark text-center text-white d-flex bg-cover bg-p-center" style="background-image:url('https://images.unsplash.com/photo-1497888329096-51c27beff665?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80')">
+                 <div class="container m-auto">
+                     <div class="row">
+                         <!-- 要加入mask 遮色片 效果 -->
+                         <div class="col-lg-8 mx-auto">
+                            <h2>Hero Title <span class="text-danger">So Good</span></h2>
+                            <p>
+                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi nulla pariatur aliquam ipsam! Inventore deleniti minus eligendi distinctio excepturi quos cumque voluptatum incidunt iusto doloremque a ut cum alias provident quae consequuntur esse dolorem mollitia libero nisi omnis,
+                              eius fuga!
+                            </p>
+                            <a href="#" class="btn btn-outline-danger">立即點餐</a>
+                            <a href="#" class="btn btn-danger">詳細資料</a>
+                         </div>
+                     </div>
+                 </div>
+
+          </section>
+     </body>
+</html>
