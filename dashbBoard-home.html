@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashBoard Bs5後台練習</title>
+      <!-- google icons -->
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+      <!--google icons 無邊框-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"> 
+      <!-- 因為scss檔案在瀏覽器是無法讀取，必須將檔案路徑建立在all.css -->
+    <link rel="stylesheet" href="./stylesheets/all.css">
+</head>
+<body class="vsc-initialized">
+      <div class="d-flex">
+          <!-- 側欄選單 由上到下垂直排列 -->
+          <aside class="sidebar bg-white vh-100 border-end d-flex flex-column pt-3">
+                    <!--1. 後台名稱 -->
+                     <div class="px-4 d-flex mb-2">
+                        <span class="material-icons me-2">
+                            restaurant
+                        </span>
+                        <strong>VeganFood </strong>- 後台管理
+                     </div>
+                    <!--2. 選單內容 (要做卷軸效果，避免內容太多，導致登出按鈕被推移到很下方，使用不易) -->
+                    <div class="overflow-auto">
+                        <div>
+                            <a href="#" class="sidebar-link active">
+                                <div class="px-4 d-flex ">
+                                    <span class="material-icons me-2">
+                                        home
+                                    </span>首頁
+                                </div>
+                            </a>
+                        </div>
+                       
+                        <!-- 選單內的子目錄 -->
+                        <div>
+                            <a href="#menu-order" class="sidebar-link" data-bs-toggle="collapse">
+                                <div class="px-4 d-flex justify-content-between">
+                                    <div class="d-flex">
+                                        <span class="material-icons  me-2">
+                                            summarize
+                                        </span>訂單管理
+                                    </div>
+                                    <span class="material-icons">
+                                        keyboard_arrow_down
+                                    </span> 
+                                </div>
+                            </a>
+                            <!-- 下拉選單內容 -->
+                           <div class="collapse" id="menu-order">
+                            <a href="orders.html" class="sidebar-link">
+                                <div class="ps-5 d-flex ">
+                                    訂單列表
+                                </div>
+                            </a>
+                            <a href="ordersProdcut-description.html" class="sidebar-link">
+                                <div class="ps-5 d-flex ">
+                                    訂單單一細節
+                                </div>   
+                            </a>
+                           </div>  
+                        </div>
+                       
+
+                    </div>
+                    <!--3. 登出按鈕 (整個登出按鈕都能點擊 d-block)-->
+                    <a href="#" class="d-block px-4 mt-auto sidebar-link">登出</a>
+
+          </aside>
+          <main class="main">
+              <!--導覽列上的 展開按鈕  -->
+               <div class="bg-white w-100 border-bottom sticky-top">
+                    <!-- 展開 選單按鈕 -->
+                    <a class="d-inline-block py-3 px-4 border-end" href="#" id="toggled-btn">
+                        <span class="material-icons text-primary">
+                            open_in_full
+                        </span>                            
+                    </a>
+               </div>
+
+               <!-- 主要內容 -->
+               <div class="p-4">
+                     <!--計算總額 在桌面板維持三欄排列 -->
+                   <div class="row  row-cols-lg-3 g-4 mb-4">
+                    <div class="col">
+                       <div class="card shadow-sm">
+                           <div class="card-body text-end">
+                               <h2 class="display-6">在線人數</h2>
+                               <p class="display-4 mb-0">3,600</p>
+                           </div>
+                       </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body  text-end">
+                                <h2 class="display-6">訂單數</h2>
+                                <p class="display-4 mb-0">1,200</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body  text-end">
+                                <h2 class="display-6">營業額</h2>
+                                <p class="display-4 mb-0 text-success"><small class="fs-4">NT$</small> 204,400</p>
+                            </div>
+                        </div>
+                    </div>
+                   </div>
+
+                   <!-- 圖表卡片 -->
+                   <div class="row g-4 mb-4">
+                        <div class="col-lg-4">
+                            <div class="card shadow-sm h-100">
+                                <!-- 使用cavas 標籤 引入寫好的 js -->
+                                <div class="card-body">
+                                        <canvas id="pie-chart" class="img-fluid"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-body">
+                                     <canvas id="bar-chart"  class="img-fluid"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+
+                   <!-- 訂購表單 table -->
+                   <div class="card">
+                       <!-- 卡片表頭 -->
+                       <div class="card-header bg-white">
+                           <div class="input-group">
+                                <span class="material-icons-outlined input-group-text bg-white border-0 fs-4 pe-0">
+                                search
+                                </span>
+                                <input type="search" class="form-control border-0 shadow-none" placeholder="Search">
+                                
+                           </div>
+                       </div>
+                       <!-- 卡片內容 -->
+                          <!-- p-0 取消預設card-body 內距 讓內容貼其 -->
+                       <div class="card-body p-0">
+                            <!-- 使用 表格 table 進行排版， 並增加響應式設計 在手機能有水平卷軸-->
+                            <div class="table-responsive">
+                                 <!-- mb-0 取消 table 預設 margon-bootom 推擠 -->
+                                <table class="table table-hover mb-0">
+                                    <!-- thead -->
+                                    <thead class="bg-light text-nowrap">
+                                        <!-- align-middle 僅用於 行內元素 及 table 表單使用， 區塊元素使用flex -->
+                                        <tr class="align-middle">
+                                            <!-- scope="col" 以欄為範圍 垂直排列 -->
+                                            <th scope="col" class="py-3 ps-4">訂單編號</th>
+                                            <th scope="col">email</th>
+                                            <th scope="col">用戶姓名</th>
+                                            <th scope="col">購買品項</th>
+                                            <th scope="col">付款狀態</th>
+                                            <th scope="col">購買金額</th>
+                                            <th scope="col" class="pe-4">編輯</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- tbody -->
+                                    <tbody class="text-nowrap">
+                                        <tr>
+                                            <!--scope="row"  以橫軸 水平排列-->
+                                            <td scope="row" class="ps-4">tx123456789</td>
+                                            <td>jimmy@yahoo.com.tw</td>
+                                            <td>吉米</td>
+                                            <td>VeganFood: 巴西莓果碗</td>
+                                            <td>
+                                                <div class="text-danger">尚未付款</div>
+                                            </td>
+                                            <td class="text-end">600</td>
+                                            <td class="text-end pe-4">
+                                                <a href="#"">
+                                                    <div class="btn btn-outline-dark btn-sm">編輯
+                                                        <span class="material-icons-outlined fs-6">
+                                                            mode_edit
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <!--scope="row"  以橫軸 水平排列-->
+                                            <td scope="row" class="ps-4">tx123444789</td>
+                                            <td>joe@yahoo.com.tw</td>
+                                            <td>喬瑟夫</td>
+                                            <td>VeganFood: 翠綠沙拉</td>
+                                            <td>
+                                                <div class="text-success">已付款</div>
+                                            </td>
+                                            <td class="text-end">400</td>
+                                            <td class="text-end pe-4">
+                                                <a href="#"">
+                                                    <div class="btn btn-outline-dark btn-sm">編輯
+                                                        <span class="material-icons-outlined fs-6">
+                                                            mode_edit
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <!--scope="row"  以橫軸 水平排列-->
+                                            <td scope="row" class="ps-4">tx123422289</td>
+                                            <td>many@yahoo.com.tw</td>
+                                            <td>馬力</td>
+                                            <td>VeganFood: 香菜地瓜沙拉</td>
+                                            <td>
+                                                <div class="text-danger">尚未付款</div>
+                                            </td>
+                                            <td class="text-end">800</td>
+                                            <td class="text-end pe-4">
+                                                <a href="#"">
+                                                    <div class="btn btn-outline-dark btn-sm">編輯
+                                                        <span class="material-icons-outlined fs-6">
+                                                            mode_edit
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+        
+                                </table>
+                            </div>
+
+                       </div>
+                       <!-- 卡片表尾 插入分頁樣式 -->
+                       <div class="card-footer bg-white p-0 py-3">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination mb-0 justify-content-end pe-4">
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                                </a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                  <span aria-hidden="true">&raquo;</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>
+                       </div>
+                   </div>
+               </div>
+              
+          </main>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+      <!-- 圖表 js cdn -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <!-- 客製化 圖表 js -->
+      <script src="./javaScript/costom-chart.js"></script>
+      <script src="./javaScript/all.js"></script>
+</body>
+</html>

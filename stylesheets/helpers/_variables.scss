@@ -1,5 +1,5 @@
 // Variables
-//
+
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
@@ -530,7 +530,7 @@ $border-color:                $gray-300 !default;
 // scss-docs-start border-radius-variables
 $border-radius:               .25rem !default;
 $border-radius-sm:            .2rem !default;
-$border-radius-lg:            .3rem !default;
+$border-radius-lg:            .75rem !default; //.3rem 
 $border-radius-pill:          50rem !default;
 // scss-docs-end border-radius-variables
 
@@ -1256,7 +1256,7 @@ $card-spacer-x:                     $spacer !default;
 $card-title-spacer-y:               $spacer * .5 !default;
 $card-border-width:                 $border-width !default;
 $card-border-color:                 rgba($black, .125) !default;
-$card-border-radius:                $border-radius !default;
+$card-border-radius:                $border-radius-lg !default; //$border-radius
 $card-box-shadow:                   null !default;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
 $card-cap-padding-y:                $card-spacer-y * .5 !default;
@@ -1480,7 +1480,7 @@ $list-group-color:                  $gray-900 !default;
 $list-group-bg:                     $white !default;
 $list-group-border-color:           rgba($black, .125) !default;
 $list-group-border-width:           $border-width !default;
-$list-group-border-radius:          $border-radius !default;
+$list-group-border-radius:          $border-radius-lg !default; // $border-radius
 
 $list-group-item-padding-y:         $spacer * .5 !default;
 $list-group-item-padding-x:         $spacer !default;
